@@ -9,7 +9,6 @@ services:
       - "--entrypoints.web.address=:80"
     ports:
       - "80:80"
-      - "8080:8080"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
 
@@ -19,7 +18,7 @@ services:
       - redis_data:/data
 
   backend:
-    image: leopetersberg/counterbackend
+    image: leopetersberg/counterbackend:latest
     labels:
       - "traefik.http.routers.backend.rule=PathPrefix(`/api/`)"
       - "traefik.http.services.backend.loadbalancer.server.port=80"
@@ -31,7 +30,7 @@ services:
       replicas: 2
 
   frontend:
-    image: leopetersberg/counterfrontend
+    image: leopetersberg/counterfrontend:latest
     labels:
       - "traefik.http.routers.frontend.rule=PathPrefix(`/`)"
       - "traefik.http.services.frontend.loadbalancer.server.port=3000"
