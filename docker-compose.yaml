@@ -30,7 +30,7 @@ services:
       replicas: 2
 
   frontend:
-    image: leopetersberg/counterfrontend:fc65a3d69528f6c9ca7c8f140b4e9f609f9b7307
+    image: leopetersberg/counterfrontend:6e59bce5dd10895e7593f2c0d7b5930ba3792a0d
     labels:
       - "traefik.http.routers.frontend.rule=PathPrefix(`/`)"
       - "traefik.http.services.frontend.loadbalancer.server.port=3000"
