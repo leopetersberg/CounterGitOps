@@ -18,7 +18,7 @@ services:
       - redis_data:/data
 
   backend:
-    image: leopetersberg/counterbackend:604d43dc7dac73726c115ed1da553548c88d6856
+    image: leopetersberg/counterbackend:d3eb9301899c460bd4bb282d85b542f0b54ec5d4
     labels:
       - "traefik.http.routers.backend.rule=PathPrefix(`/api/`)"
       - "traefik.http.services.backend.loadbalancer.server.port=80"
